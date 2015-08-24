@@ -5,6 +5,3 @@
   %p
     Published on
     = article.created_at.strftime('%A, %d/%m/%Y')
-
-- if user_signed_in?
-  =link_to "New Article", new_article_path
