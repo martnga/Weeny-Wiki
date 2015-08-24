@@ -1,3 +1,9 @@
-%h1 Hello Mortal!
+
+-@articles.each do |article|
+  %h2= article.title
+  %p= truncate(article.content, length: 200)
+  %p
+    Published on
+    = article.created_at.strftime('%A, %d/%m/%Y')
 
 =link_to "New Article", new_article_path
