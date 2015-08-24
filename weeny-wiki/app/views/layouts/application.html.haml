@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>WeenyWiki</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+!!!
+%html
+%head
+  %title Weni Wiki
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+%body
+  %p.notice= notice
+  %p.alert= alert
 
-<%= yield %>
+  = yield
 
-</body>
-</html>
+  %ul
+    %li=link_to "All Articles", root_path
+    - Category.all.each do |category|
+      %li= link_to category.name, articles_path(category: category.name)
