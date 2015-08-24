@@ -6,4 +6,5 @@
     Published on
     = article.created_at.strftime('%A, %d/%m/%Y')
 
-=link_to "New Article", new_article_path
+- if user_signed_in?
+  =link_to "New Article", new_article_path
